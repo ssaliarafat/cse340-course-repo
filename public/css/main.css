@@ -1,31 +1,221 @@
-html,
-body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation */
+
+nav {
+    background: #0d47a1;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #ffeb3b;
+}
+
+/* Main */
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+h1 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #1565c0;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.org-p {
+    font-size: large;
+    text-align: center;
+    color: #0d47a1;
+}
+
+/* Lists */
+
+ul {
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 12px;
+}
+
+/* Images */
+
+.main-logo {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 35px auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Organization logos */
+
+li img {
+    width: 55px;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+/* Footer */
+
+footer {
+    background: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Responsive Pages */
+
+@media (max-width: 768px) {
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    main {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+
     nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+        padding: 15px;
+    }
 
-        li {
-            display: inline;
-            margin-right: 15px;
-        }
+    main {
+        padding: 20px;
+    }
 
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+    h1 {
+        font-size: 1.7rem;
+    }
 
-            &:hover {
-                color: #0066cc;
-            }
-        }
+    h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* HERO SECTION */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-logo {
+    width: 100%;
+    max-width: 350px;
+    transition: .3s;
+}
+
+.main-logo:hover {
+    transform: scale(1.03);
+}
+
+.homeh2 {
+    font-size: 2.2rem;
+    color: #0d47a1;
+    margin: 15px 0;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 25px 0 35px;
+    max-width: 600px;
+}
+
+
+
+/* RESPONSIVE HERO */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main-logo {
+        max-width: 280px;
+    }
+
+    .homeh2 {
+        font-size: 1.8rem;
     }
 }
