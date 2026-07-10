@@ -6,15 +6,22 @@
         </h1>
 
         <h2>Categories</h2>
-        
 
         <ul>
-            <li>Environmental</li>
-            <li>Educational</li>
-            <li>Community Service</li>
-            <li>Health and Wellness</li>
+
+            <% categories.forEach(category=> { %>
+
+                <li>
+                    <%= category.name %>
+                </li>
+
+                <% }) %>
+
         </ul>
 
     </main>
 
     <%- include('partials/footer') %>
+
+
+        <%- include('partials/header') %>

@@ -64,3 +64,52 @@ VALUES
 (3,'Charity Clothing Drive','Collect, organize, and distribute donated clothing to local shelters.','Ojodu','2026-10-03'),
 
 (3,'Community Health Awareness Day','Support health professionals by assisting with registration and public education.','Agege','2026-10-17');
+
+
+-- ========================================
+-- Category Table
+-- ========================================
+
+CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- ========================================
+-- Project Category Junction Table
+-- ========================================
+
+CREATE TABLE project_category (
+    project_id INT NOT NULL,
+    category_id INT NOT NULL,
+
+    PRIMARY KEY (project_id, category_id),
+
+    FOREIGN KEY (project_id)
+        REFERENCES service_project(project_id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (category_id)
+        REFERENCES category(category_id)
+        ON DELETE CASCADE
+);
+
+INSERT INTO project_category (project_id, category_id)
+VALUES
+(1,2),
+(2,2),
+(3,1),
+(4,2),
+(5,3),
+
+(6,3),
+(7,1),
+(8,1),
+(9,3),
+(10,2),
+
+(11,2),
+(12,2),
+(13,1),
+(14,2),
+(15,2);
