@@ -5,19 +5,29 @@
             <%= title %>
         </h1>
 
-        <p class="org-p"><b>Upcoming Service Projects</b></p>
-        <br>
+        
+        <
 
         <ul>
 
             <% projects.forEach(project=> { %>
-
                 <li>
                     <strong>
-                    <%= new Date(project.project_date).toLocaleDateString('en-US', { year: 'numeric' , month: 'long' , day: 'numeric' }) %>
+                        <%= new Date(project.project_date).toLocaleDateString('en-US', { year: 'numeric' , month: 'long'
+                            , day: 'numeric' }) %>
                     </strong>:
-                    <%= project.title %>
-                        (<%= project.organization_name %>)
+
+                    <a href="/project/<%= project.project_id %>">
+                        <%= project.title %>
+                    </a>
+
+                    (
+
+                    <a href="/organization/<%= project.organization_id %>">
+                        <%= project.organization_name %>
+                    </a>
+
+                    )
                 </li>
 
                 <% }) %>
