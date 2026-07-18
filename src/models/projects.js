@@ -105,9 +105,34 @@ const getProjectDetails = async (projectId) => {
     return result.rows.length > 0 ? result.rows[0] : null;
 };
 
+const getCategoriesByProjectId = async (projectId) => {
+
+    const query = `
+        SELECT
+            c.category_id,
+            c.name
+        FROM category c
+
+        JOIN project_category pc
+            ON c.category_id = pc.category_id
+
+        WHERE pc.project_id = $1
+
+        ORDER BY c.name;
+    `;
+
+    const queryParams = [projectId];
+
+    const result = await db.query(query, queryParams);
+
+    return result.rows;
+
+};
+
 export {
     getAllProjects,
     getProjectsByOrganizationId,
     getUpcomingProjects,
-    getProjectDetails
+    getProjectDetails,
+    getCategoriesByProjectId
 };
