@@ -12,6 +12,10 @@
             <%= organizationDetails.description %>
         </p>
 
+        <a href="/edit-organization/<%= organizationDetails.organization_id %>">
+            Edit Organization
+        </a>
+
         <h3>Service Projects</h3>
 
         <% if (projects.length> 0) { %>
