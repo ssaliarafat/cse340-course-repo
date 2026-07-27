@@ -2,7 +2,8 @@ import {
     getUpcomingProjects,
     getProjectDetails,
     getCategoriesByProjectId,
-    createProject
+    createProject,
+    updateProject
 } from "../models/projects.js";
 
 import { getAllOrganizations } from "../models/organizations.js";
@@ -125,10 +126,69 @@ const processNewProjectForm = async (req, res) => {
 
 };
 
+const showEditProjectForm = async (req, res) => {
+
+    const projectId = req.params.id;
+
+    const project = await getProjectDetails(projectId);
+
+    const organizations = await getAllOrganizations();
+
+    res.render("edit-project", {
+        title: "Edit Project",
+        project,
+        organizations
+    });
+
+};
+
+const processEditProjectForm = async (req, res) => {
+
+    const results = validationResult(req);
+
+    if (!results.isEmpty()) {
+
+        results.array().forEach(error => {
+            req.flash("error", error.msg);
+        });
+
+        return res.redirect(`/edit-project/${req.params.id}`);
+    }
+
+    const projectId = req.params.id;
+
+    const {
+        organizationId,
+        title,
+        description,
+        location,
+        date
+    } = req.body;
+
+    await updateProject(
+        projectId,
+        title,
+        description,
+        location,
+        date,
+        organizationId
+    );
+
+    req.flash(
+        "success",
+        "Project updated successfully!"
+    );
+
+    res.redirect(`/project/${projectId}`);
+
+};
+
 export {
     showProjectsPage,
     showProjectDetailsPage,
     showNewProjectForm,
     processNewProjectForm,
+    showEditProjectForm,
+    processEditProjectForm,
     projectValidation
 };
