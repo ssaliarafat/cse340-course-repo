@@ -342,6 +342,25 @@ button:hover {
 
 }
 
+/* General Page Links */
+
+.dashboard-home-link {
+
+    color: #0d47a1;
+    background: #e3f2fd;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+
+.dashboard-home-link:hover {
+    color: white;
+    background: #1565c0;
+}
+
 /* Dashboard */
 
 .dashboard {
@@ -414,4 +433,46 @@ button:hover {
 
     color: #0d47a1;
 
+}
+
+/* Admin Dashboard Link */
+
+.manage-users-link {
+
+    display: inline-block;
+
+    background: #0d47a1;
+
+    color: white;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    padding: 12px 25px;
+
+    border-radius: 6px;
+
+    font-weight: 600;
+
+    margin-top: 25px;
+
+    transition: .3s;
+
+}
+
+
+.manage-users-link:hover {
+
+    background: #1565c0;
+
+    transform: translateY(-2px);
+
+}
+
+/* Admin Dashboard Link */
+
+.admin-link-container {
+    text-align: center;
+    margin-top: 20px;
 }

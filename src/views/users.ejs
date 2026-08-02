@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+    <main>
+
+        <h1>Registered Users</h1>
+
+        <div class="users-list">
+
+            <% users.forEach(user=> { %>
+
+                <div class="user-card">
+
+                    <h2>
+                        <%= user.name %>
+                    </h2>
+
+                    <p>
+                        <strong>Email:</strong>
+                        <%= user.email %>
+                    </p>
+
+                    <p>
+                        <strong>Role:</strong>
+                        <%= user.role_name %>
+                    </p>
+
+                </div>
+
+                <% }) %>
+
+        </div>
+
+    </main>
+
+    <%- include('partials/footer') %>

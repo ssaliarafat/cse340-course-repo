@@ -43,7 +43,8 @@ import {
     processLogout,
     requireLogin,
     showDashboard,
-    requireRole
+    requireRole,
+    showUsers
 } from "./controllers/users.js";
 
 
@@ -92,6 +93,13 @@ router.post("/login", processLoginForm);
 router.get("/logout", processLogout);
 // Protected dashboard route
 router.get('/dashboard', requireLogin, showDashboard);
+
+// Admin users page
+router.get(
+    "/users",
+    requireRole("admin"),
+    showUsers
+);
 
 router.get(
     "/new-organization",
