@@ -6,7 +6,9 @@
         </h1>
 
         <p>
-            <a href="/new-project">Add New Service Project</a>
+            <% if (user && user.role_name==="admin" ) { %>
+                <a href="/new-project">Add New Service Project</a>
+                <% } %>
         </p>
 
         <ul>

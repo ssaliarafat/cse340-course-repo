@@ -42,7 +42,8 @@ import {
     processLoginForm,
     processLogout,
     requireLogin,
-    showDashboard
+    showDashboard,
+    requireRole
 } from "./controllers/users.js";
 
 
@@ -52,8 +53,6 @@ router.get("/", showHomePage);
 
 router.get("/organizations", showOrganizationsPage);
 router.get("/organization/:id", showOrganizationDetailsPage);
-router.get("/new-organization", showNewOrganizationForm);
-router.post("/new-organization", organizationValidation, processNewOrganizationForm);
 router.get("/edit-organization/:id", showEditOrganizationForm);
 router.post("/edit-organization/:id", organizationValidation, processEditOrganizationForm);
 
@@ -93,6 +92,19 @@ router.post("/login", processLoginForm);
 router.get("/logout", processLogout);
 // Protected dashboard route
 router.get('/dashboard', requireLogin, showDashboard);
+
+router.get(
+    "/new-organization",
+    requireRole("admin"),
+    showNewOrganizationForm
+);
+
+router.post(
+    "/new-organization",
+    requireRole("admin"),
+    organizationValidation,
+    processNewOrganizationForm
+);
 
 
 // Test route for the error page

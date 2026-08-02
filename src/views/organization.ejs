@@ -11,34 +11,35 @@
         <p>
             <%= organizationDetails.description %>
         </p>
+        <% if (user && user.role_name==="admin" ) { %>
+            <a href="/edit-organization/<%= organizationDetails.organization_id %>">
+                Edit Organization
+            </a>
+            <% } %>
 
-        <a href="/edit-organization/<%= organizationDetails.organization_id %>">
-            Edit Organization
-        </a>
+                <h3>Service Projects</h3>
 
-        <h3>Service Projects</h3>
+                <% if (projects.length> 0) { %>
 
-        <% if (projects.length> 0) { %>
+                    <ul>
 
-            <ul>
+                        <% projects.forEach(project=> { %>
 
-                <% projects.forEach(project=> { %>
+                            <li>
+                                <a href="/project/<%= project.project_id %>">
+                                    <%= project.title %>
+                                </a>
+                            </li>
 
-                    <li>
-                        <a href="/project/<%= project.project_id %>">
-                            <%= project.title %>
-                        </a>
-                    </li>
+                            <% }) %>
 
-                    <% }) %>
+                    </ul>
 
-            </ul>
+                    <% } else { %>
 
-            <% } else { %>
+                        <p>No projects available.</p>
 
-                <p>No projects available.</p>
-
-                <% } %>
+                        <% } %>
 
     </main>
 
