@@ -57,6 +57,32 @@
             </a>
             <% } %>
 
+            <% if (user) { %>
+            
+                <% if (!isVolunteer) { %>
+            
+                    <p>
+                        <a href="/project/<%= project.project_id %>/volunteer">
+                            Volunteer for this Project
+                        </a>
+                    </p>
+            
+                    <% } else { %>
+            
+                        <p>
+                            <strong>You are volunteering for this project.</strong>
+                        </p>
+            
+                        <p>
+                            <a href="/project/<%= project.project_id %>/remove-volunteer">
+                                Remove Volunteer
+                            </a>
+                        </p>
+            
+                        <% } %>
+            
+                            <% } %>
+
     </main>
 
     <%- include('partials/footer') %>

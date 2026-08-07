@@ -20,6 +20,8 @@ import {
     processNewProjectForm,
     showEditProjectForm,
     processEditProjectForm,
+    processVolunteerProject,
+    processRemoveVolunteer,
     projectValidation
 } from "./controllers/projects.js";
 
@@ -114,6 +116,18 @@ router.post(
     processNewOrganizationForm
 );
 
+
+router.get(
+    "/project/:id/volunteer",
+    requireLogin,
+    processVolunteerProject
+);
+
+router.get(
+    "/project/:id/remove-volunteer",
+    requireLogin,
+    processRemoveVolunteer
+);
 
 // Test route for the error page
 router.get("/test-error", testErrorPage);
